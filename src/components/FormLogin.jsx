@@ -1,8 +1,24 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
-import { Input, Image } from '@rneui/base';
+import React, { useState } from 'react';
+import { Input, Image, Icon } from '@rneui/base';
+import { set } from "lodash";
 
 export default function FormLogin() {
+  const [username, setUsername] = useState(null)
+  const [password, setPassword] = useState(null)
+  const [showPassword, setShowPassword] = useState(true)
+  const [error, setError] = useState({username: '', passwordError: ''})
+
+  console.log("ya entro?")
+  console.log("username: ", username)
+  console.log("password: ", password)
+
+  if (isEmpty(username) || isEmpty(password)) {
+    setError({usernameError: 'el usuario es requerido', passwordError: 'la contraseña es requerida'})
+  } else {
+    setError({usernameError: '', passwordError: ''})
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -12,7 +28,34 @@ export default function FormLogin() {
       <Input
         placeholder='User'
         label='User'
-        labelStyle={{marginBottom: 16 }}
+        labelStyle={styles.label}
+        style={{marginBottom: 16 }}
+        errorMessage={error.usernameError}
+      />
+      <input
+        placeholder='********'
+        label='Password'
+        labelStyle={styles.label}
+        style={{marginBottom: 16 }}
+        secureTextEntry={true}
+        rightIcon={
+          <Icon
+            name={showPassword ? "eye-off" : "eye"}
+            type="material-community"
+            onPress={() => setShowPassword(!showPassword)}
+          />  
+        }
+        onChangeText={event => setPassword(event)}
+        errorMessage={error.passwordError}
+      />
+      <Button
+        tittle={"Login"}
+        containerStyle={{width: "80%", borderColor: 'green', borderWidth: 1, borderRadius: 16 }}
+        color={"white"}
+        tittleStyle={{ color: "green "}}
+        icon={<Icon name="login" type="material-community" color="green" />}
+        iconPosition="left"
+        onPress={login}
       />
     </View>
   );
@@ -25,6 +68,6 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 12,
-    color: '#f3f3f3',
+    color: 'green',
   },
 });
