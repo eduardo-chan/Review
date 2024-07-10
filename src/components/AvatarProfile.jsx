@@ -1,35 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  Image,
-  Dimensions,
-} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image, Dimensions } from 'react-native';
 import { Avatar, Button, Icon } from '@rneui/themed';
-
-const data = [
-    { id: '1', image: 'https://picsum.photos/200/300' },
-    { id: '2', image: 'https://picsum.photos/200/300' },
-    { id: '3', image: 'https://picsum.photos/200/300' },
-    { id: '4', image: 'https://picsum.photos/200/300' },
-    { id: '5', image: 'https://picsum.photos/200/300' },
-    { id: '6', image: 'https://picsum.photos/200/300' },
-    { id: '7', image: 'https://picsum.photos/200/300' },
-    { id: '8', image: 'https://picsum.photos/200/300' },
-    { id: '10', image: 'https://picsum.photos/200/300' },
-    { id: '11', image: 'https://picsum.photos/200/300' },
-    { id: '12', image: 'https://picsum.photos/200/300' },
-    { id: '13', image: 'https://picsum.photos/200/300' },
-    { id: '14', image: 'https://picsum.photos/200/300' },
-    { id: '15', image: 'https://picsum.photos/200/300' },
-    { id: '16', image: 'https://picsum.photos/200/300' },
-    { id: '17', image: 'https://picsum.photos/200/300' },
-    { id: '18', image: 'https://picsum.photos/200/300' },
-  ];
-
-  const numColumns = 3;
+const numColumns = 3;
 const imageSize = Dimensions.get('window').width / numColumns;
 
 //row: columna

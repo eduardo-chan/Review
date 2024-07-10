@@ -10,6 +10,7 @@ export default function FormLogin() {
   const [error, seterror] = useState({usernameError: "", passwordError: ""})
 
   const login = () => {
+    console.log("ya entró?")
     console.log("Username: ", username);
     console.log("Password: ", password);
     if(isEmpty(username) || isEmpty(password)){
@@ -52,10 +53,10 @@ export default function FormLogin() {
       <Button
         onPress={login}
         title={"Iniciar sesión"}
-        titleStyle={{ color: "pink" }}
+        titleStyle={{ color: "red" }}
         containerStyle={{
           width: "80%",
-          borderColor: "pink",
+          borderColor: "red",
           borderWidth: 1,
           borderRadius: 16,
         }}
@@ -65,7 +66,7 @@ export default function FormLogin() {
           <Icon
             name="login"
             type="material-community"
-            color={"pink"}
+            color={"red"}
             style={{ marginRight: 5 }}
           />
         }
