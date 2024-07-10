@@ -1,1 +1,1 @@
-Review class of the subject development for smart devices
+Review class for Development for Smart Devices
